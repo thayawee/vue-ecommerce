@@ -13,7 +13,7 @@ const cartStore = useCartStore();
 
 <template>
   <UserLayout>
-    <div class="h-screen">
+    <div class="min-h-screen">
       <div class="mx-10 text-2xl font-bold">Shopping cart</div>
       <p
         v-if="cartStore.items.length === 0"
