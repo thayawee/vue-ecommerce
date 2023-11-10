@@ -4,8 +4,10 @@ import { ref, onMounted } from "vue";
 import UserLayout from "@/layouts/UserLayout.vue";
 
 import { useUserStore } from "@/stores/user";
+import { useEventStore } from "../stores/event";
 
 const userStore = useUserStore();
+const eventStore = useEventStore();
 
 const name = ref("");
 const email = ref("");
@@ -16,7 +18,7 @@ const updateProfile = () => {
     email: email.value,
   };
   userStore.updateProfile(profileData);
-  alert("Success update profile!");
+  eventStore.popupMessage("success", "😊 Update profile successful !");
 };
 
 onMounted(() => {

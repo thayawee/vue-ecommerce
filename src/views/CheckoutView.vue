@@ -6,9 +6,11 @@ import UserLayout from "@/layouts/UserLayout.vue";
 import Edit from "@/components/icons/Edit.vue";
 
 import { useCartStore } from "@/stores/cart";
+import { useEventStore } from "../stores/event";
 
 const router = useRouter();
 const cartStore = useCartStore();
+const eventStore = useEventStore();
 
 const formData = [
   { name: "Email", field: "email" },
@@ -29,7 +31,7 @@ const userFormData = reactive({
 const payment = () => {
   cartStore.placeorder(userFormData);
   router.push({ name: "success" });
-  alert("Your order is successful!");
+  eventStore.popupMessage("success", "😊 Your order is successful!");
 };
 </script>
 

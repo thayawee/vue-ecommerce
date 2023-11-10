@@ -5,10 +5,12 @@ import { useRouter } from "vue-router";
 import UserLayout from "@/layouts/UserLayout.vue";
 
 import { useUserStore } from "@/stores/user";
+import { useEventStore } from "../stores/event";
 
 const router = useRouter();
 
 const userStore = useUserStore();
+const eventStore = useEventStore();
 
 const name = ref("");
 const email = ref("");
@@ -21,7 +23,7 @@ const login = () => {
     password: password.value,
   };
   userStore.login(loginData);
-  alert("Success login!");
+  eventStore.popupMessage("success", "😊 Login successful !");
   router.push({ name: "product-list" });
 };
 
